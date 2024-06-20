@@ -72,7 +72,10 @@ table {
   background-color: #03b1c8;
 }
 
-ul {  
+#divPersonajes {  
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
   padding-top: 100px;
   list-style: none;
 }
