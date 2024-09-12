@@ -19,14 +19,16 @@ const mostartEnPantalla = (personajes) => {
     const divPersonajes = document.getElementById('divPersonajes');
 
     let totalDivs =''
-    for (let personaje of personajes) {
+ 
+    personajes.forEach(personaje => {
         let  divPersonaje = '<div> <img width=200px src=' + personaje.image + '>  </img> <h3>' + personaje.name + '</h3><h3>' + personaje.species + '</h3></div>'; 
         totalDivs = totalDivs + divPersonaje;
-    }
+    })
     divPersonajes.innerHTML = totalDivs;
 }
 
 function fetchPersonajes(pagina) {
+
     fetch('https://rickandmortyapi.com/api/character/?page=' + pagina)
         .then((response) => {
             if (!response.ok) {
@@ -43,6 +45,7 @@ function fetchPersonajes(pagina) {
             console.error(error)
             divPersonajes.innerText = 'ha habido un error con la Api: ' + error;
         });
+        
 }
 
 fetchPersonajes(paginaActual)
